@@ -1,6 +1,7 @@
 <%= link_to 'Add a movie list', new_list_path %>
 
 <% @lists.each do |list| %>
+  <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
   <li><%= link_to list.name, list_path(list) %></li>
   <%= link_to 'Delete',  list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 <% end %>
